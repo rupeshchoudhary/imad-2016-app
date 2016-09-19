@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles = {
+    'article-one' : {
   title: 'Article One | Rupesh Choudhary ',
   heading:'Article One',
   heading1:'Wild life',
@@ -21,7 +22,42 @@ var articleOne = {
           untouched by human factors, most scientists agree that much wildlife is affected by human activities.
           </p>`
 
+},
+    'article-two' : {
+        title: 'Article Two | Rupesh Choudhary ',
+  heading:'Article Two',
+  heading1:'Technology',
+  date:'Sep 10, 2016',
+  content:` 
+          <p>
+          Technology is the collection of techniques, skills, methods and processes used in the production of goods or services or in the
+          accomplishment of objectives, such as scientific investigation. Technology can be the knowledge of techniques, processes, etc.
+          or it can be embedded in machines, computers, devices and factories, which can be operated by individuals without detailed
+          knowledge of the workings of such things.
+          </p>
+          <p> 
+          Stay up-to-date on the newest technology news and future technology from the editors at Pop Sci Magazine.
+          </p>`
+    },
+    'article-three' : {
+       title: 'Article Three | Rupesh Choudhary ',
+  heading:'Article Three',
+  heading1:'Pollution',
+  date:'Sep 20, 2016',
+  content:` 
+          <p>
+          Pollution is the introduction of contaminants into the natural environment that cause adverse change.[1] Pollution can take the
+          form of chemical substances or energy, such as noise, heat or light. Pollutants, the components of pollution, can be either
+          foreign substances/energies or naturally occurring contaminants. Pollution is often classed as point source or nonpoint source
+          pollution.
+          </p>
+          <p> 
+          Environmental pollution is one of the greatest problems that the world is facing today causing grave and irreparable damage to
+          the earth, damaged atmosphere..........
+          </p>` 
+    },
 };
+
 
 function createTemplate (data) {
     var title = data.title;
@@ -72,20 +108,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one' , function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName' , function(req,res){
+    //articleName == article-one
+    //articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
     
 });
 
-app.get('/article-two' , function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-    
-});
-
-app.get('/article-three' , function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-    
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
