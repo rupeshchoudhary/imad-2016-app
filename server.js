@@ -5,8 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-articleOne : {
+var articleOne = {
   title: 'Article One | Rupesh Choudhary ',
   heading:'Article One',
   heading1:'Wild life',
@@ -21,7 +20,7 @@ articleOne : {
           developed urban sites, all have distinct forms of wildlife. While the term in popular culture usually refers to animals that are
           untouched by human factors, most scientists agree that much wildlife is affected by human activities.
           </p>`
-},
+
 
 
 };
