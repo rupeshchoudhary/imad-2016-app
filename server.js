@@ -21,8 +21,6 @@ var articleOne = {
           untouched by human factors, most scientists agree that much wildlife is affected by human activities.
           </p>`
 
-
-
 };
 
 function createTemplate (data) {
