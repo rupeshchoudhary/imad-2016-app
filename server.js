@@ -42,37 +42,23 @@ function createTemplate (data) {
       
       <div>
           <a href ="/"> Home</a>
-          
-          
       </div>
       <hr/>
       <h3> 
-      
       ${heading}
-      
       </h3>
       <h3> ${heading1} </h3>
       <div>
-           ${date}
-          
+      ${date}
       </div>
       <div> Author = Rupesh Kumar Choudhary </div>
-      
-     
-
-        
-      
       <div>
-          
-          ${content}
-          
-          
+      ${content}
       </div>
       </div>
       
   </body>
   </html>
-
 `;
 return htmlTemplate;
 }
