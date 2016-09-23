@@ -20,7 +20,7 @@ var element = document.getElementById('main-text'
   //counter code 
   var button = document.getElementById('counter');
   var counter = 0;
-  button.onclick = function (){
+  button.onclick = function () {
       
       //make a request to counter end point
       
@@ -28,7 +28,7 @@ var element = document.getElementById('main-text'
       
       //Render thr variable in the correct span
       
-      counter = counter +1;
+      counter = counter + 1;
       var span = document.getElementById('count');
       span.innerHTML = counter.toString();
   };
